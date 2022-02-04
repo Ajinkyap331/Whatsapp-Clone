@@ -1,0 +1,30 @@
+.messages,
+.messages2 {
+  display: flex;
+  justify-content: flex-end;
+  width: 45vw;
+  margin: 5px;
+}
+
+.messages > div,
+.messages2 > div {
+  width: max-content;
+  max-width: 30vw;
+  min-width: 6vw;
+  background-color: #005c4b;
+  border-radius: 8px;
+  padding: 5px 10px 3px 10px;
+}
+
+.messages2 {
+  justify-content: flex-start;
+  margin-left: 30px;
+}
+
+.messages1 {
+  margin-right: 30px;
+}
+
+.messages2 > div {
+  background-color: #202c33;
+}

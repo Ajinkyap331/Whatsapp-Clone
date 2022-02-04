@@ -1,0 +1,20 @@
+.chat {
+  display: flex;
+  align-items: center;
+  height : 5vh;
+  padding : 10px;
+}
+
+.chat > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height : 5vh;
+}
+
+.chat > div > section {
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 15vw;
+}

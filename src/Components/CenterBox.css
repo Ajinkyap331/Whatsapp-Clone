@@ -1,0 +1,7 @@
+.center-box{
+    /* border: 1px solid white; */
+    background-color: #111b21;
+    width: 88.5vw;
+    height: 95.5vh;
+    display: flex;
+}
