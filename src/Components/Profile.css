@@ -1,0 +1,44 @@
+.profile-avatar{
+    margin: 10px;
+    width : 23vw;
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap : 10px;
+    background-color: #202c33;
+    width: 20.5vw;
+    border-radius: 8px;
+    box-shadow: 15px 20px 33px -3px rgba(0, 0, 0, 0.84);
+}
+
+.profile-about{
+    padding:15px;
+    display: flex;
+    flex-direction: column;
+    gap : 10px;
+    background-color: #202c33;
+    margin: 10px;
+    width: 19vw;
+    border-radius: 8px;
+    box-shadow: 15px 20px 33px -3px rgba(0, 0, 0, 0.84);
+
+}
+
+.profile-about > p {
+    margin-left: 15px;
+}
+
+.profile-block{
+    margin: 10px;
+    width: 19.5vw;
+    display: flex;
+    padding : 10px;
+    align-items: center;
+    gap : 20px;
+    background-color: #202c33;
+    border-radius: 8px;
+    box-shadow: 15px 20px 33px -3px rgba(0, 0, 0, 0.84);
+
+}

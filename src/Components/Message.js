@@ -1,6 +1,6 @@
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import './Message.css'
-export const Message = ({ text, seen }) => {
+export const Message = ({ text, seen}) => {
 
     return <div className='messages'>
         <div>
@@ -16,9 +16,10 @@ export const Message = ({ text, seen }) => {
     </div>;
 };
 
-export const Message2 = ({text}) => {
+export const Message2 = ({text, group }) => {
     return <div className='messages2'>
         <div>
+            <p style = {{color : "red", fontSize: "15px"}}>{group && <>Name</>}</p>
             {text}
             <div style={{ fontSize: "10px", display: 'flex', justifyContent: 'flex-end' }}>
                 {

@@ -7,10 +7,11 @@
   background-color: #2a3942;
   padding: 10px;
   margin: 10px;
-  width: 17vw;
+  width: 17.5vw;
   display: flex;
   align-items: center;
   border-radius: 8px;
+  box-shadow: 15px 20px 33px -3px rgba(0, 0, 0, 0.84);
 }
 
 .left > section > input {

@@ -5,12 +5,12 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SentimentSatisfiedSharpIcon from '@mui/icons-material/SentimentSatisfiedSharp';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import { Message, Message2 } from './Message';
-import Taarkh from '../Images/Taarakh.jpg'
 
-export const Right = () => {
+export const Right = ({group}) => {
 
-    var name = "Taarakh Mehta"
+    var name = "Deokumar"
     var status = "online"
+    var members = "Ajinkya, Deo, Ruchi"
 
     const [message, setmessage] = useState([])
     const [seen, setseen] = useState(false)
@@ -19,9 +19,9 @@ export const Right = () => {
     useEffect(() => {
         var objDiv = document.getElementById("message-container");
         objDiv.scrollTop = objDiv.scrollHeight;
-        setTimeout(() => {
-            setseen(true)
-        }, 10000)
+        // setTimeout(() => {
+        //     setseen(true)
+        // }, 10000)
     }, [message])
 
     const HandleEnter = (key) => {
@@ -43,10 +43,12 @@ export const Right = () => {
     return <div className='right'>
         <nav className='right-nav'>
             <section>
-                <Avatar src={Taarkh} />
+                <Avatar />
                 <div className='name-lastseen'>
                     <p>{name}</p>
-                    <p style={{ color: "grey", fontSize: "13px" }}>{status}</p>
+                    {!group && <p style={{ color: "grey", fontSize: "13px" }}>{status}</p>}
+                    {group && <p style={{ color: "grey", fontSize: "13px" }}>{members}</p>}
+                    
                 </div>
             </section>
             <section className="icons">
@@ -67,7 +69,7 @@ export const Right = () => {
                         )
                     else {
                         return (
-                            <Message2 text={mess[0]} />
+                            <Message2 text={mess[0]} group = {group}/>
                         )
                     }
                 })

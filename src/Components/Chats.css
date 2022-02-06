@@ -3,6 +3,11 @@
   align-items: center;
   height : 5vh;
   padding : 10px;
+  cursor: pointer;
+  background-color: #202c33;
+  margin : 10px;
+  border-radius: 8px;
+  box-shadow: 15px 20px 33px -3px rgba(0, 0, 0, 0.84);
 }
 
 .chat > div {
@@ -13,8 +18,8 @@
 }
 
 .chat > div > section {
-  margin-left: 20px;
+  margin-left: 10px;
   display: flex;
   justify-content: space-between;
-  width: 15vw;
+  width: 14vw;
 }

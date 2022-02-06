@@ -2,19 +2,18 @@ import React from 'react';
 import './LeftRight.css'
 import { Avatar } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { Chats } from './Chats';
-import Jethalal from '../Images/jethalal.jpg'
+import { Chats, Groups } from './Chats';
 
-export const Left = () => {
+export const Left = ({setgroup}) => {
     return <div className='left'>
         <nav className='left-nav'>
-            <Avatar src={Jethalal} />
+            <Avatar />
         </nav>
         <section>
             <SearchIcon />
             <input placeholder='Search' />
         </section>
-        <Chats />
-        <Chats />
+        <Chats setgroup = {setgroup} />
+        <Groups setgroup = {setgroup}/>
     </div>;
 };
