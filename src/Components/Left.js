@@ -14,6 +14,7 @@ export const Left = ({setgroup}) => {
             <input placeholder='Search' />
         </section>
         <Chats setgroup = {setgroup} />
-        <Groups setgroup = {setgroup}/>
+        <Groups setgroup = {setgroup} name = "Offical Group" />
+        <Groups setgroup = {setgroup} name = "Unoffical Group" />
     </div>;
 };
