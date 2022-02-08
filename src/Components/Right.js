@@ -8,7 +8,7 @@ import { Message, Message2 } from "./Message";
 import { Data } from "../Data";
 import Picker from "emoji-picker-react";
 
-export const Right = ({ group, name }) => {
+export const Right = ({ group, name, message, setmessage }) => {
     
     var Status = "", Photo = "";
     if (name !== "") {
@@ -16,9 +16,9 @@ export const Right = ({ group, name }) => {
         Photo = Data.Characters[name].photo;
     }
 
-    const [message, setmessage] = useState([]);
     const [seen, setseen] = useState(false);
     const [mess, setmess] = useState("");
+    const [leftmess, setleftmess] = useState(false)
 
     var emoji = false
 
@@ -38,16 +38,20 @@ export const Right = ({ group, name }) => {
     };
 
     const HandleEnter = (key) => {
-        if (key.shiftKey && key.key === "Enter" && mess !== "") {
-            setmessage([...message, [mess, 2]]);
-            document.getElementById("main-inp").value = "";
-            setmess("", () => {
-                console.log(1);
-            });
+        if (key.shiftKey && key.key === "Enter") {
+            setleftmess(true)
         } else if (key.key === "Enter" && mess !== "") {
             setmessage([...message, [mess, 1]]);
             document.getElementById("main-inp").value = "";
             setmess("");
+        }
+        if((key.key >= 1 && key.key <= 9 && leftmess && mess !== "") || (!group && key.shiftKey && key.key === "Enter")){
+            const _name = Data.Characters[name].seen
+            // console.log(Data.Characters[name].seen.split(",")[key.key - 1].trim())
+            setmessage([...message, [mess, 2, _name[key.key - 1]]]);
+            setmess("");
+            document.getElementById("main-inp").value = "";
+            setleftmess(false)
         }
     };
 
@@ -58,7 +62,12 @@ export const Right = ({ group, name }) => {
                     <Avatar src={Photo} />
                     <div className="name-lastseen">
                         <p>{name}</p>
-                        <p style={{ color: "grey", fontSize: "13px" }}>{Status}</p>
+                        {
+                            group && <p style={{ color: "grey", fontSize: "13px" }}>{Status.join(', ')}</p>    
+                        }
+                        {
+                            !group && <p style={{ color: "grey", fontSize: "13px" }}>{Status}</p>    
+                        }
                     </div>
                 </section>
                 <section className="icons">
@@ -81,22 +90,22 @@ export const Right = ({ group, name }) => {
                 </div>
             </div>
             <div className="message-container" id="message-container">
-                {message.map((mess, i) => {
+                { message.map((mess) => {
                     if (mess[1] === 1) return <Message text={mess[0]} seen={seen} />;
                     else {
-                        return <Message2 text={mess[0]} group={group} />;
+                        return <Message2 text={mess[0]} group={group} By = {mess[2]} />;
                     }
                 })}
                 <div style={{ height: "5vh" }}></div>
                 <div id="picker" style={{ display: "none" }}>
-                    <Picker
+                    {/* <Picker
                         onEmojiClick={onEmojiClick}
                         pickerStyle={{
                             position: "absolute",
                             bottom: "90px",
                             width: "40vw",
                         }}
-                    />
+                    /> */}
                 </div>
             </div>
             <div className="right-footer">

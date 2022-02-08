@@ -10,9 +10,11 @@ export const CenterBox = ({Data}) => {
 
   const [name, setname] = useState("")
 
+  const [message, setmessage] = useState([]);  
+
   return <div className='center-box'>
-    <Left setgroup = {setgroup} Data = {Data} setname = {setname}/>
-    <Right group = {group} Data  = {Data } name = {name}/>
+    <Left setgroup = {setgroup} Data = {Data} setname = {setname} setmessage = {setmessage}/>
+    <Right group = {group} Data  = {Data } name = {name} message = {message} setmessage = {setmessage}/>
     <Profile group = {group} Data  = {Data } name = {name}/>
   </div>;
 };

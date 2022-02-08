@@ -30,9 +30,9 @@ export const Profile = ({ group, name }) => {
       </section>
       {
         !group && <section className="video-call">
-        <div><div><VideocamIcon /></div> <p>Call</p></div>
-        <div><div><CallIcon /></div> <p>Video</p></div>
-      </section>
+          <div><div><VideocamIcon /></div> <p>Video</p></div>
+          <div><div><CallIcon /></div> <p>Call</p></div>
+        </section>
       }
       {
         !group && <section className="profile-block">
