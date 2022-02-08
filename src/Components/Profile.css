@@ -42,3 +42,32 @@
     box-shadow: 15px 20px 33px -3px rgba(0, 0, 0, 0.84);
 
 }
+
+.video-call{
+    margin: 10px;
+    width: 19.2vw;
+    display: flex;
+    padding : 10px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #202c33;
+    border-radius: 8px;
+    box-shadow: 15px 20px 33px -3px rgba(0, 0, 0, 0.84);
+}
+
+.video-call > div{
+    display: flex;
+    flex-direction: column;
+    gap : 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-call > div > div {
+    padding : 10px;
+    background-color: #161b1f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

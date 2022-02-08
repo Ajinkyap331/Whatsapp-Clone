@@ -1,11 +1,11 @@
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import './Message.css'
-export const Message = ({ text, seen}) => {
+export const Message = ({text, seen}) => {
 
     return <div className='messages'>
         <div>
             {text}
-            <div style={{ fontSize: "10px", display: 'flex', justifyContent: 'flex-end', alignItems : "center" }}>
+            <div style={{fontSize: "10px", display: 'flex', justifyContent: 'flex-end', alignItems : "center" }}>
                 {
                     new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
                 }

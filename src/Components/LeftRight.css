@@ -26,8 +26,9 @@
   width: 18.74vw;
   padding: 10px;
   display: flex;
-  justify-content: space-between;
-  border-right: 0.1px solid #ffffff20
+  border-right: 0.1px solid #ffffff20;
+  align-items: center;
+  gap : 20px;
 }
 
 .right{
@@ -37,6 +38,7 @@
 
 .right-nav {
   width: 45vw;
+  justify-content: space-between;
 }
 
 .right-nav > section {

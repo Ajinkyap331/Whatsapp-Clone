@@ -1,11 +1,12 @@
 import './App.css';
 import { CenterBox } from './Components/CenterBox'
+import { Data } from './Data';
 
 
 function App(){
   return (
     <div>
-      <CenterBox />
+      <CenterBox Data = {Data}/>
     </div>
   );
 }

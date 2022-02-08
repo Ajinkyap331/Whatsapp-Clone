@@ -4,17 +4,29 @@ import { Avatar } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Chats, Groups } from './Chats';
 
-export const Left = ({setgroup}) => {
+export const Left = ({setgroup, Data, setname}) => {
     return <div className='left'>
         <nav className='left-nav'>
-            <Avatar />
+            <Avatar src = {Data.Characters.Babban}/>
+            <p>{Data.MainCharcter}</p>
         </nav>
         <section>
             <SearchIcon />
             <input placeholder='Search' />
         </section>
-        <Chats setgroup = {setgroup} />
-        <Groups setgroup = {setgroup} name = "Offical Group" />
-        <Groups setgroup = {setgroup} name = "Unoffical Group" />
+        {
+            Data.DM.map(name => {
+                return(
+                    <Chats setgroup = {setgroup} name = {name} setname = {setname}/>   
+                )
+            })
+        }
+        {
+            Data.Groups.map(name => {
+                return(
+                    <Groups setgroup = {setgroup} name = {name} setname = {setname}/> 
+                )
+            })
+        }
     </div>;
 };
