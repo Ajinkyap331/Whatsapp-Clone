@@ -3,24 +3,25 @@ import { Avatar } from "@mui/material";
 import "./Profile.css";
 import BlockIcon from "@mui/icons-material/Block";
 import NotificationsOffIcon from "@mui/icons-material/NotificationsOff";
-import { Data } from "../Data";
 import VideocamIcon from '@mui/icons-material/Videocam';
 import CallIcon from '@mui/icons-material/Call';
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import { Photo } from "../Data";
 
-export const Profile = ({ group, name }) => {
+export const Profile = ({ group, name, Data }) => {
 
-  var Status = "", Photo = "", PNumber = "";
+  var Status = "", _Photo = "", PNumber = "";
   if (name !== "") {
     Status = Data.Characters[name].status
     PNumber = Data.Characters[name].number
-    Photo = Data.Characters[name].photo
+    _Photo = Photo[name]
   }
 
   return (
     <div className="profile">
       <nav style={{ width: "22vw", height: "7.8vh" }}></nav>
       <section className="profile-avatar">
-        <Avatar sx={{ width: 120, height: 120 }} src={Photo} />
+        <Avatar sx={{ width: 120, height: 120 }} src={_Photo} />
         <p>{name}</p>
         {!group && <p>{PNumber}</p>}
       </section>
@@ -43,24 +44,34 @@ export const Profile = ({ group, name }) => {
       {
         group && <div className="profile-block" style={{ flexDirection: "column", gap: 0 }}>
           <h2>Members</h2>
-          <section style={{ display: "flex", justifyContent: "space-between", width: "18vw" }}>
-            <p>Ajinkya</p>
-            <p>online</p>
-          </section>
-          <section style={{ display: "flex", justifyContent: "space-between", width: "18vw" }}>
-            <p>Ruchi</p>
-            <p>online</p>
-          </section>
-          <section style={{ display: "flex", justifyContent: "space-between", width: "18vw" }}>
-            <p>Deokumar</p>
-            <p>12:40</p>
-          </section>
+          {
+            Data.Characters[name].seen.map(members => {
+              return (
+                <section style={{ display: "flex", justifyContent: "space-between", width: "18vw", alignItems : "center" }}>
+                  <p>{members}</p>
+                  {
+                    (Data.Characters[members].seen === "online") && <p style = {{background : "green", height : "10px", width : "10px", borderRadius : "50%", marginRight : "10px" }}></p>
+                  }
+                  {
+                    (Data.Characters[members].seen !== "online") && <p>{Data.Characters[members].seen}</p>
+                  }
+                </section>
+              )
+            })
+          }
         </div>
       }
       <section className="profile-block">
         <NotificationsOffIcon sx={{ color: "#44a6c6" }} />
         <p>Mute Notification</p>
       </section>
+      {
+        group && <section className="profile-block">
+        <PersonAddAlt1Icon/>
+        <p>Add Participants</p>
+      </section>
+      }
+      
     </div>
   );
 };

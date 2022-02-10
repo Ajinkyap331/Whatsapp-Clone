@@ -5,15 +5,16 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import SentimentSatisfiedSharpIcon from "@mui/icons-material/SentimentSatisfiedSharp";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import { Message, Message2 } from "./Message";
-import { Data } from "../Data";
 import Picker from "emoji-picker-react";
+import { Photo } from "../Data";
 
-export const Right = ({ group, name, message, setmessage }) => {
-    
-    var Status = "", Photo = "";
+export const Right = ({ group, name, message, setmessage, Data }) => {
+
+    console.log(Data.Characters[name])
+    var Status = "", _Photo = "";
     if (name !== "") {
         Status = Data.Characters[name].seen;
-        Photo = Data.Characters[name].photo;
+        _Photo = Photo[name];
     }
 
     const [seen, setseen] = useState(false);
@@ -45,10 +46,12 @@ export const Right = ({ group, name, message, setmessage }) => {
             document.getElementById("main-inp").value = "";
             setmess("");
         }
-        if((key.key >= 1 && key.key <= 9 && leftmess && mess !== "") || (!group && key.shiftKey && key.key === "Enter")){
+        if ((key.key >= 0 && key.key <= 9 && leftmess && mess !== "") || (!group && key.shiftKey && key.key === "Enter")) {
             const _name = Data.Characters[name].seen
-            // console.log(Data.Characters[name].seen.split(",")[key.key - 1].trim())
-            setmessage([...message, [mess, 2, _name[key.key - 1]]]);
+            if (key.key === 0)
+                setmessage([...message, [mess, 2, undefined]]);
+            else setmessage([...message, [mess, 2, _name[key.key - 1]]]);
+            console.log(message)
             setmess("");
             document.getElementById("main-inp").value = "";
             setleftmess(false)
@@ -59,14 +62,14 @@ export const Right = ({ group, name, message, setmessage }) => {
         <div className="right">
             <nav className="right-nav">
                 <section>
-                    <Avatar src={Photo} />
+                    <Avatar src={_Photo} />
                     <div className="name-lastseen">
                         <p>{name}</p>
                         {
-                            group && <p style={{ color: "grey", fontSize: "13px" }}>{Status.join(', ')}</p>    
+                            group && <p style={{ color: "grey", fontSize: "13px" }}>{Status.join(', ')}</p>
                         }
                         {
-                            !group && <p style={{ color: "grey", fontSize: "13px" }}>{Status}</p>    
+                            !group && <p style={{ color: "grey", fontSize: "13px" }}>{Status}</p>
                         }
                     </div>
                 </section>
@@ -90,10 +93,11 @@ export const Right = ({ group, name, message, setmessage }) => {
                 </div>
             </div>
             <div className="message-container" id="message-container">
-                { message.map((mess) => {
-                    if (mess[1] === 1) return <Message text={mess[0]} seen={seen} />;
+                {message.map((mess) => {
+                    console.log(mess)
+                    if (mess[1] === 1) return <Message text={mess[0]} seen={seen} Data = {Data}/>;
                     else {
-                        return <Message2 text={mess[0]} group={group} By = {mess[2]} />;
+                        return <Message2 text={mess[0]} group={group} By={mess[2]} Data = {Data}/>;
                     }
                 })}
                 <div style={{ height: "5vh" }}></div>

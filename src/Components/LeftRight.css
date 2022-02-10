@@ -12,13 +12,13 @@
   align-items: center;
   border-radius: 8px;
   box-shadow: 15px 20px 33px -3px rgba(0, 0, 0, 0.84);
+  gap : 20px;
 }
 
 .left > section > input {
   background-color: #2a3942;
   font-size: medium;
   width: 20vw;
-  margin-left: 20px;
 }
 
 .right-nav,

@@ -1,8 +1,7 @@
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { Avatar } from '@mui/material';
 import './Message.css'
-import { Data } from '../Data';
-export const Message = ({ text, seen }) => {
+export const Message = ({ text, seen, Data }) => {
 
     return <div className='messages'>
         <div>
@@ -18,12 +17,12 @@ export const Message = ({ text, seen }) => {
     </div>;
 };
 
-export const Message2 = ({ text, group, By }) => {
+export const Message2 = ({ text, group, By, Data }) => {
     // console.log(By)
     // console.log(Data.Characters[By])
     return <div className='messages2'>
         {
-            group && <section>
+            group && (By !== undefined) && <section>
                 <Avatar src={Data.Characters[By].photo} />
             </section>
         }

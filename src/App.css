@@ -39,7 +39,41 @@ input {
   background-color: #2a3942;
 }
 
-/* Handle on hover */
-/* ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-} */
+.center-prompt{
+  position: absolute;
+  top : 0;
+  display: flex;
+  gap : 20px;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  height: 90vh;
+}
+
+.center-prompt > section{
+  width: 35vw;
+  height: 30vh;
+  background-color: #202c33;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.center-prompt > section > input{
+  padding : 10px;
+  background-color: #202c33;
+  border: 1px solid rgba(255, 255, 255, 0.253);
+  border-radius: 8px;
+  width : 30vh;
+}
+
+.center-prompt > section > button{
+  background-color: #202c33;
+  border: 1px solid rgba(255, 255, 255, 0.253);
+  color : white;
+  padding : 5px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
