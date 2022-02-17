@@ -3,6 +3,7 @@ import { Avatar } from '@mui/material';
 import './Chats.css'
 import { Photo } from '../Data';
 
+
 export const Chats = ({ setgroup, name, setname, setmessage, Data }) => {
     return <div className="chat" onClick={() => { setgroup(false); setname(name); setmessage([]) }} >
         <div>
@@ -16,7 +17,7 @@ export const Chats = ({ setgroup, name, setname, setmessage, Data }) => {
             <section className='chat-bottom'>
                 <p style={{ color: "gray" }}>{Data.Characters[name].lastMessage}</p>
                 {
-                    (Data.Characters[name].NOM !== 0) && <div className = "message-number"> <p>{Data.Characters[name].NOM}</p> </div>
+                    (Data.Characters[name].NOM !== 0) && <div className="message-number"> <p>{Data.Characters[name].NOM}</p> </div>
                 }
             </section>
         </div>
@@ -36,7 +37,7 @@ export const Groups = ({ setgroup, name, setname, setmessage, Data }) => {
             <section className='chat-bottom'>
                 <p style={{ color: "gray" }}>{Data.Characters[name].lastMessage}</p>
                 {
-                    (Data.Characters[name].NOM !== 0) && <div className = "message-number"> <p>{Data.Characters[name].NOM}</p> </div>
+                    (Data.Characters[name].NOM !== 0) && <div className="message-number"> <p>{Data.Characters[name].NOM}</p> </div>
                 }
             </section>
         </div>

@@ -6,11 +6,12 @@ import { Chats, Groups } from './Chats';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { Photo } from '../Data';
 
-export const Left = ({ setgroup, Data, setname, setmessage, setshowprompt }) => {
+export const Left = ({ setgroup, Data, setname, setmessage, setshowprompt, Reload }) => {
     return <div className='left'>
         <nav className='left-nav'>
             <Avatar src={Photo.Babban} />
             <p>{Data.MainCharacter}</p>
+            <button onClick={() => Reload[1](!Reload[0])}>RELOAD</button>
         </nav>
         <section>
             <SearchIcon />
@@ -20,7 +21,7 @@ export const Left = ({ setgroup, Data, setname, setmessage, setshowprompt }) => 
             <GroupsIcon />
             <p>Create a Group</p>
         </section>
-        <div style={{ overflow: "auto", height: "71.5vh" }}>
+        <div style={{ overflow: "auto", height: "72.2vh" }}>
             {
                 Data.Groups.map(name => {
                     return (

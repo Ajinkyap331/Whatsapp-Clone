@@ -20,58 +20,65 @@ export const Profile = ({ group, name, Data }) => {
   return (
     <div className="profile">
       <nav style={{ width: "22vw", height: "7.8vh" }}></nav>
-      <section className="profile-avatar">
-        <Avatar sx={{ width: 120, height: 120 }} src={_Photo} />
-        <p>{name}</p>
-        {!group && <p>{PNumber}</p>}
-      </section>
-      <section className="profile-about">
-        {group ? <>Description</> : <>About</>}
-        <p>{Status}</p>
-      </section>
-      {
-        !group && <section className="video-call">
-          <div><div><VideocamIcon /></div> <p>Video</p></div>
-          <div><div><CallIcon /></div> <p>Call</p></div>
+      <div>
+        <section className="profile-avatar">
+          <Avatar sx={{ width: 120, height: 120 }} src={_Photo} />
+          <p>{name}</p>
+          {!group && <p>{PNumber}</p>}
         </section>
-      }
-      {
-        !group && <section className="profile-block">
-          <BlockIcon sx={{ color: "red" }} />
-          <p>Block</p>
+        <section className="profile-about">
+          {group ? <>Description</> : <>About</>}
+          <p>{Status}</p>
         </section>
-      }
-      {
-        group && <div className="profile-block" style={{ flexDirection: "column", gap: 0 }}>
-          <h2>Members</h2>
-          {
-            Data.Characters[name].seen.map(members => {
-              return (
-                <section style={{ display: "flex", justifyContent: "space-between", width: "18vw", alignItems : "center" }}>
-                  <p>{members}</p>
-                  {
-                    (Data.Characters[members].seen === "online") && <p style = {{background : "green", height : "10px", width : "10px", borderRadius : "50%", marginRight : "10px" }}></p>
-                  }
-                  {
-                    (Data.Characters[members].seen !== "online") && <p>{Data.Characters[members].seen}</p>
-                  }
-                </section>
-              )
-            })
-          }
-        </div>
-      }
-      <section className="profile-block">
-        <NotificationsOffIcon sx={{ color: "#44a6c6" }} />
-        <p>Mute Notification</p>
-      </section>
-      {
-        group && <section className="profile-block">
-        <PersonAddAlt1Icon/>
-        <p>Add Participants</p>
-      </section>
-      }
-      
+        {
+          !group && <section className="video-call">
+            <div><div><VideocamIcon /></div> <p>Video</p></div>
+            <div><div><CallIcon /></div> <p>Call</p></div>
+          </section>
+        }
+        {
+          group && <section className="video-call">
+            <div><div><VideocamIcon /></div> <p>Group Video</p></div>
+            <div><div><CallIcon /></div> <p>Group Call</p></div>
+          </section>
+        }
+        {
+          !group && <section className="profile-block">
+            <BlockIcon sx={{ color: "red" }} />
+            <p>Block</p>
+          </section>
+        }
+        {
+          group && <div className="profile-block" style={{ flexDirection: "column", gap: 0 }}>
+            <h2>Members</h2>
+            {
+              Data.Characters[name].seen.map(members => {
+                return (
+                  <section style={{ display: "flex", justifyContent: "space-between", width: "18vw", alignItems: "center" }}>
+                    <p>{members}</p>
+                    {
+                      (Data.Characters[members].seen === "online") && <p style={{ background: "green", height: "10px", width: "10px", borderRadius: "50%", marginRight: "10px" }}></p>
+                    }
+                    {
+                      (Data.Characters[members].seen !== "online") && <p>{Data.Characters[members].seen}</p>
+                    }
+                  </section>
+                )
+              })
+            }
+          </div>
+        }
+        <section className="profile-block">
+          <NotificationsOffIcon sx={{ color: "#44a6c6" }} />
+          <p>Mute Notification</p>
+        </section>
+        {
+          group && <section className="profile-block">
+            <PersonAddAlt1Icon />
+            <p>Add Participants</p>
+          </section>
+        }
+      </div>
     </div>
   );
 };

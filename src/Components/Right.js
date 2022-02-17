@@ -9,8 +9,6 @@ import Picker from "emoji-picker-react";
 import { Photo } from "../Data";
 
 export const Right = ({ group, name, message, setmessage, Data }) => {
-
-    console.log(Data.Characters[name])
     var Status = "", _Photo = "";
     if (name !== "") {
         Status = Data.Characters[name].seen;
@@ -78,29 +76,24 @@ export const Right = ({ group, name, message, setmessage, Data }) => {
                     <MoreVertIcon />
                 </section>
             </nav>
-            <div
-                style={{ display: "flex", justifyContent: "center", marginTop: "1vh" }}
-            >
-                <div
-                    style={{
-                        padding: "5px",
-                        borderRadius: "5px",
-                        background: "#202c33",
-                        width: "max-content",
-                    }}
-                >
-                    TODAY
+            <div style={{ display: "flex", justifyContent: "center", marginTop: "1vh" }}>
+                <div style={{
+                    padding: "10px",
+                    borderRadius: "5px",
+                    background: "#202c33",
+                    width: "max-content",
+                }}>
+                    YESTERDAY
                 </div>
             </div>
             <div className="message-container" id="message-container">
                 {message.map((mess) => {
-                    console.log(mess)
-                    if (mess[1] === 1) return <Message text={mess[0]} seen={seen} Data = {Data}/>;
+                    if (mess[1] === 1) return <Message text={mess[0]} seen={seen} Data={Data} />;
                     else {
-                        return <Message2 text={mess[0]} group={group} By={mess[2]} Data = {Data}/>;
+                        return <Message2 text={mess[0]} group={group} By={mess[2]} Data={Data} />;
                     }
                 })}
-                <div style={{ height: "5vh" }}></div>
+                <div style={{ height: "6vh" }}></div>
                 <div id="picker" style={{ display: "none" }}>
                     {/* <Picker
                         onEmojiClick={onEmojiClick}

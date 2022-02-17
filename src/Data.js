@@ -21,6 +21,6 @@ export const Photo = {
   "Handsome Boi": Handsome,
   Mataji: Mataji,
   Tikdi: Tikdi,
-  "Offical Group": Offical,
-  "Un-Offical Group": "",
+  "Official Group": Offical,
+  "Un-Official Group": "",
 };

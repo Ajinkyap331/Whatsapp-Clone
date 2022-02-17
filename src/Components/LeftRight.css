@@ -34,6 +34,10 @@
 .right{
   width: 46.25vw;
   border-right: 0.1px solid #ffffff20;
+  /* background-image: url("../Images/LOGO.png");
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;  */
 }
 
 .right-nav {

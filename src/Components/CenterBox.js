@@ -4,7 +4,7 @@ import { Left } from './Left';
 import { Profile } from './Profile';
 import { Right } from './Right';
 
-export const CenterBox = ({Data, setshowprompt}) => {
+export const CenterBox = ({Data, setshowprompt, Reload}) => {
 
   const [group, setgroup] = useState(false)
 
@@ -13,7 +13,7 @@ export const CenterBox = ({Data, setshowprompt}) => {
   const [message, setmessage] = useState([]);  
 
   return <div className='center-box'>
-    <Left setgroup = {setgroup} Data = {Data} setname = {setname} setmessage = {setmessage} setshowprompt = {setshowprompt}/>
+    <Left setgroup = {setgroup} Data = {Data} setname = {setname} setmessage = {setmessage} setshowprompt = {setshowprompt} Reload = {Reload}/>
     <Right group = {group} Data  = {Data} name = {name} message = {message} setmessage = {setmessage}/>
     <Profile group = {group} Data  = {Data} name = {name}/>
   </div>;

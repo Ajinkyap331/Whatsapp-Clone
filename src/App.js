@@ -9,12 +9,13 @@ const axios = require('axios');
 
 function App() {
 
+  const [reload, setreload] = useState(false)
   useEffect(() => {
     axios.get('http://127.0.0.1:5000/')
       .then((response) => {
         setData(response.data)
       })
-  }, [])
+  }, [reload])
   const [showprompt, setshowprompt] = useState(false)
   const [groupname, setgroupname] = useState(false)
   const [Avatarsrc, setAvatarsrc] = useState("")
@@ -24,7 +25,7 @@ function App() {
       {
         Data ? <>
           <div>
-            <CenterBox Data={Data} setshowprompt={setshowprompt} />
+            <CenterBox Data={Data} setshowprompt={setshowprompt} Reload = {[reload, setreload]} />
             {
               showprompt && <div className='center-prompt'>
                 {

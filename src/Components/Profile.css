@@ -1,3 +1,8 @@
+.profile > div{
+    overflow-y: auto;
+    height: 87.8vh;
+}
+
 .profile-avatar{
     margin: 10px;
     width : 23vw;
