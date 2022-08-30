@@ -5,8 +5,9 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import SentimentSatisfiedSharpIcon from "@mui/icons-material/SentimentSatisfiedSharp";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import { Message, Message2 } from "./Message";
-import Picker from "emoji-picker-react";
 import { Photo } from "../Data";
+import SendIcon from '@mui/icons-material/Send';
+import { AddMembers } from "./AddMembers";
 
 export const Right = ({ group, name, message, setmessage, Data }) => {
     var Status = "", _Photo = "";
@@ -32,9 +33,23 @@ export const Right = ({ group, name, message, setmessage, Data }) => {
         emoji = !emoji
     }
 
+    const ToggleProfile = () => {
+        document.querySelector(".profile").style.display = "block";
+        document.querySelector(".right").style.width = "46.25vw"
+        document.querySelector(".right-nav").style.width = "45vw"
+        document.querySelector(".right-footer").style.width = "43.75vw"
+        document.querySelector(".message-container").style.width = "47vw"
+        document.querySelector(".right-footer>section").style.width = "34vw"
+        document.querySelector(".messages").style.width = "45vw"
+        document.querySelector(".messages2").style.width = "45vw"
+
+
+    }
+
     const onEmojiClick = (event, emojiObject) => {
         setmess(mess + emojiObject.emoji);
     };
+
 
     const HandleEnter = (key) => {
         if (key.shiftKey && key.key === "Enter") {
@@ -60,7 +75,7 @@ export const Right = ({ group, name, message, setmessage, Data }) => {
         <div className="right">
             <nav className="right-nav">
                 <section>
-                    <Avatar src={_Photo} />
+                    <Avatar src={_Photo} onClick={ToggleProfile} style = {{cursor : "pointer"}} />
                     <div className="name-lastseen">
                         <p>{name}</p>
                         {
@@ -76,16 +91,17 @@ export const Right = ({ group, name, message, setmessage, Data }) => {
                     <MoreVertIcon />
                 </section>
             </nav>
-            <div style={{ display: "flex", justifyContent: "center", marginTop: "1vh" }}>
-                <div style={{
+            <div  style={{ display: "flex", justifyContent: "center", marginTop: "1.2vh", color: "grey" }}>
+                <div  style={{
                     padding: "10px",
                     borderRadius: "5px",
                     background: "#202c33",
                     width: "max-content",
                 }}>
-                    YESTERDAY
+                    TODAY
                 </div>
             </div>
+                <AddMembers />
             <div className="message-container" id="message-container">
                 {message.map((mess) => {
                     if (mess[1] === 1) return <Message text={mess[0]} seen={seen} Data={Data} />;
@@ -93,17 +109,7 @@ export const Right = ({ group, name, message, setmessage, Data }) => {
                         return <Message2 text={mess[0]} group={group} By={mess[2]} Data={Data} />;
                     }
                 })}
-                <div style={{ height: "6vh" }}></div>
-                <div id="picker" style={{ display: "none" }}>
-                    {/* <Picker
-                        onEmojiClick={onEmojiClick}
-                        pickerStyle={{
-                            position: "absolute",
-                            bottom: "90px",
-                            width: "40vw",
-                        }}
-                    /> */}
-                </div>
+                <div style={{ height: "7vh" }}></div>
             </div>
             <div className="right-footer">
                 <SentimentSatisfiedSharpIcon
@@ -120,6 +126,7 @@ export const Right = ({ group, name, message, setmessage, Data }) => {
                         onKeyPress={(d) => HandleEnter(d)}
                     />
                 </section>
+                <SendIcon />
             </div>
         </div>
     );

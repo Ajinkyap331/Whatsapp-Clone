@@ -10,7 +10,10 @@ export const Message = ({ text, seen, Data }) => {
                 <img style={{ maxWidth: "20vw",borderRadius : "16px", marginTop : "5px" }} src={text.replace("_photo", "")} ></img>
             }
             {
-                !(text.includes("_photo")) && text
+                (!text.includes("_photo")) && text.includes(".emoji") && <p style = {{fontSize : "30px"}}>{text.replace(".emoji", "")}</p>
+            }
+            {
+                !text.includes(".emoji") && <p>{text}</p>
             }
             
             <div style={{ fontSize: "10px", display: 'flex', justifyContent: 'flex-end', alignItems: "center" }}>
@@ -21,7 +24,7 @@ export const Message = ({ text, seen, Data }) => {
                 {seen && <DoneAllIcon sx={{ fontSize: "15px", marginLeft: "5px", color: "#53adca" }} />}
             </div>
         </div>
-    </div>;
+    </div>
 };
 
 export const Message2 = ({ text, group, By, Data }) => {
@@ -40,8 +43,12 @@ export const Message2 = ({ text, group, By, Data }) => {
                 <img style={{ maxWidth: "20vw",borderRadius : "16px", marginTop : "5px" }} src={text.replace("_photo", "")} ></img>
             }
             {
-                !(text.includes("_photo")) && text
+                (!text.includes("_photo")) && text.includes(".emoji") && <p style = {{fontSize : "30px"}}>{text.replace(".emoji", "")}</p>
             }
+            {
+                !text.includes(".emoji") && !(text.includes("_photo")) && <p>{text}</p>
+            }
+
             <div style={{ fontSize: "10px", display: 'flex', justifyContent: 'flex-end' }}>
                 {
                     new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })

@@ -7,6 +7,7 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 import CallIcon from '@mui/icons-material/Call';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import { Photo } from "../Data";
+import CloseIcon from '@mui/icons-material/Close';
 
 export const Profile = ({ group, name, Data }) => {
 
@@ -17,9 +18,22 @@ export const Profile = ({ group, name, Data }) => {
     _Photo = Photo[name]
   }
 
+  const ProfileRemove = () => {
+    document.querySelector(".profile").style.display = "none";
+    document.querySelector(".right").style.width = "76vw";
+    document.querySelector(".right-nav").style.width = "67vw"
+    document.querySelector(".right-footer").style.width = "66vw"
+    document.querySelector(".message-container").style.width = "65vw"
+    document.querySelector(".right-footer>section").style.width = "65vw"
+    document.querySelector(".messages").style.width = "64vw"
+    document.querySelector(".messages2").style.width = "64vw"
+  }
   return (
     <div className="profile">
-      <nav style={{ width: "22vw", height: "7.8vh" }}></nav>
+      <nav>
+        <p>Profile Page</p>
+        <CloseIcon onClick={ProfileRemove} style = {{cursor : "pointer"}}/>
+      </nav>
       <div>
         <section className="profile-avatar">
           <Avatar sx={{ width: 120, height: 120 }} src={_Photo} />

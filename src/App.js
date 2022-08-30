@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { CenterBox } from './Components/CenterBox'
-// import { Data } from './Data';
 import { Avatar } from '@mui/material';
 import Unoffical from './Images/Unoffical.jpg'
 const axios = require('axios');

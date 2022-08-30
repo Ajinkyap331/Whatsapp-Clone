@@ -3,6 +3,21 @@
     height: 87.8vh;
 }
 
+.profile{
+    width : 46.25vw;
+    display: none;
+}
+
+.profile > nav{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box; 
+    padding : 20px;
+    align-items: center;
+    width: 22vw;
+    height: 7.8vh;
+}
+
 .profile-avatar{
     margin: 10px;
     width : 23vw;

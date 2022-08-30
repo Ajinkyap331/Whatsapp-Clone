@@ -17,10 +17,12 @@ export const Photo = {
   Dekito: Dekito,
   Agent: Agent,
   Doctor: Doctor,
+  "K Mithnik": Hacker,
   Hacker: Hacker,
   "Handsome Boi": Handsome,
   Mataji: Mataji,
   Tikdi: Tikdi,
   "Official Group": Offical,
+  // "Official Group": "",
   "Un-Official Group": "",
 };

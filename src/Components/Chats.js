@@ -5,7 +5,7 @@ import { Photo } from '../Data';
 
 
 export const Chats = ({ setgroup, name, setname, setmessage, Data }) => {
-    return <div className="chat" onClick={() => { setgroup(false); setname(name); setmessage([]) }} >
+    return <div className="chat" onClick={() => { setgroup(false); setname(Data.Characters[name].name); setmessage([]) }} >
         <div>
             <Avatar src={Photo[name]} />
         </div>

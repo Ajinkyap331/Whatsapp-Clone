@@ -9,7 +9,7 @@ import { Photo } from '../Data';
 export const Left = ({ setgroup, Data, setname, setmessage, setshowprompt, Reload }) => {
     return <div className='left'>
         <nav className='left-nav'>
-            <Avatar src={Photo.Babban} />
+            <Avatar src={Photo.Babban}/>
             <p>{Data.MainCharacter}</p>
             <button onClick={() => Reload[1](!Reload[0])}>RELOAD</button>
         </nav>
